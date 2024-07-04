@@ -40,6 +40,9 @@ class CalculatorViewModel : ViewModel() {
     private fun enterOperation(operation: CalculatorOperation) {
         if (state.number1.isNotBlank()) {
             state = state.copy(operation = operation)
+            //if operation is not null
+            //add the in try catch block
+
         }
     }
 
@@ -62,8 +65,10 @@ class CalculatorViewModel : ViewModel() {
 
     private fun calculate() {
         val number1 = state.number1.toDoubleOrNull()
+
         val number2= state.number2.toDoubleOrNull()
         if (number1 != null && number2 != null) {
+
             val result=   when (state.operation) {
                 CalculatorOperation.Add -> number1+number2
                 CalculatorOperation.Subtract -> number1-number2
@@ -101,8 +106,24 @@ class CalculatorViewModel : ViewModel() {
 
     }
 
+
     //subtract
-    private fun subtract() {
+    private fun subtract2() {
+        if (state.number1.isNotBlank() && state.number2.isNotBlank()) {
+            val result = state.number1.toDouble() - state.number2.toDouble()
+            state = state.copy(number1 = result.toString(), number2 = "", operation = null)
+        }
+
+    }
+    private fun subtract1() {
+        if (state.number1.isNotBlank() && state.number2.isNotBlank()) {
+            val result = state.number1.toDouble() - state.number2.toDouble()
+            state = state.copy(number1 = result.toString(), number2 = "", operation = null)
+        }
+
+    }
+
+    public fun subtract3() {
         if (state.number1.isNotBlank() && state.number2.isNotBlank()) {
             val result = state.number1.toDouble() - state.number2.toDouble()
             state = state.copy(number1 = result.toString(), number2 = "", operation = null)

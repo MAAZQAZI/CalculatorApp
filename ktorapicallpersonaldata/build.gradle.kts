@@ -1,15 +1,19 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    id ("com.android.application")
+    id ("kotlin-android")
+
+    alias(libs.plugins.kotlin.serialization)
+
+
 }
 
 android {
-    namespace = "com.example.calculatorapp"
+    namespace = "com.example.ktorapicallpersonaldata"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.calculatorapp"
-        minSdk = 24
+       applicationId = "com.example.ktorapicallpersonaldata"
+        minSdk = 21
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -60,14 +64,12 @@ dependencies {
     implementation(libs.androidx.ui.tooling.preview)
     implementation(libs.androidx.material3)
     implementation(libs.androidx.lifecycle.viewmodel.compose)
-    debugImplementation(libs.ui.tooling)
+
     implementation(libs.ktor.client.core)
     implementation(libs.ktor.client.android)
     implementation(libs.ktor.client.serialization)
     implementation(libs.ktor.client.logging)
     implementation(libs.ktor.client.content.negotiation)
     implementation(libs.serialization)
-    implementation(project(":ktorapicallpersonaldata"))
-
 
 }

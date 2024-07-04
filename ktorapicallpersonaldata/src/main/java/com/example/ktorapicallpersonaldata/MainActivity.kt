@@ -1,4 +1,5 @@
-package com.example.calculatorapp
+package com.example.ktorapicallpersonaldata
+
 
 import android.os.Bundle
 import android.util.Log
@@ -17,7 +18,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.lifecycle.ViewModel
-import com.example.calculatorapp.ui.theme.CalculatorAppTheme
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ktorapicallpersonaldata.network.ApiFactory
 import kotlinx.coroutines.CoroutineScope
@@ -31,21 +31,19 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         fetchUser(1)
         setContent {
-            CalculatorAppTheme {
-                val viewModel= viewModel<CalculatorViewModel>()
-                val state = viewModel.state
-                val buttonspacing=8.dp
-                Calculator(state = state , onAction = viewModel::onAction, modifier = Modifier
-                    .fillMaxSize()
-                    .background(Color.DarkGray)
-                    .padding(16.dp),
-                    btnSpacing = buttonspacing)
-
-            }
+             Greeting(name = "Android", modifier = Modifier.padding(16.dp))
         }
     }
 
 
+}
+
+@Composable
+fun Greeting(name: String, modifier: Modifier = Modifier) {
+    Text(
+        text = "Hello $name!",
+        modifier = modifier
+    )
 }
 
 private fun fetchUser(userId: Int) {

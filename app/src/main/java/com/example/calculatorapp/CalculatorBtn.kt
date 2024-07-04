@@ -13,12 +13,9 @@ import androidx.compose.ui.Modifier // Ensure this import is from Jetpack Compos
 
 @Composable
 fun CalculatorBtn(
-
     symbol: String,
     modifier: Modifier,
     onClick: () -> Unit
-
-
 ) {
     Box(
         contentAlignment = Alignment.Center,
@@ -30,8 +27,7 @@ fun CalculatorBtn(
         Text(
             text = symbol,
             fontSize = 24.sp,
-            color = Color.White
-            , onTextLayout = {}
+            color = Color.White, onTextLayout = {}
         )
 
     }

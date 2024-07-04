@@ -8,6 +8,8 @@ sealed class CalculatorActions {
     object  Clear : CalculatorActions()
     object  Equal : CalculatorActions()
     object  Decimal: CalculatorActions()
+
+
     object  Deletion: CalculatorActions()
     data class  Number(val number: Int) : CalculatorActions()
     data class  Operation(val operation: CalculatorOperation) : CalculatorActions()
